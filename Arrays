@@ -1,0 +1,81 @@
+#Intro:
+An Array is a collection of items. The items could be integers, strings, DVDs, games, books—anything really.
+In Array the items are stored in neighboring (contiguous) memory locations. Because they're stored together, 
+checking through the entire collection of items is straightforward.
+
+# Arrays can hold up to N items. programmer have to decide the Value of N and also the data type of item that will be going into the Array.
+
+# The two most primitive Array operations are writing elements into them, and reading elements from them. 
+  All other Array operations are built on top of these two primitive operations.
+  
+# Each of the places is identified using a number in the range of 0 to N - 1. 
+  The 1st place is 0, the 2nd place is 1, the 3rd place is 2... 
+  We call these numbers that identify each place indexes.
+  
+# Java always initializes empty Array slots to null if the Array contains objects, or to default values if it contains primitive types. 
+  For example, the array int [] would contain the default value of 0 for each element, 
+  float[] would contain default values of 0.0, and bool[] would contain default values of false.
+  
+  
+#Storing DVD's
+
+
+// A simple definition for a DVD.
+class DVD {
+    public String name;
+    public int releaseYear;
+    public String director;
+
+    public DVD(String name, int releaseYear, String director) {
+        this.name = name;
+        this.releaseYear = releaseYear;
+        this.director = director;
+    }
+
+    public String toString() {
+        return this.name + ", directed by " + this.director + ", released in " + this.releaseYear;
+    }
+}
+
+public class Main{
+    public static void main(String[] args){
+        
+        // The actual code for creating an Array to hold DVD's.
+        DVD[] dvdCollection = new DVD[15];    
+        
+        // Firstly, we need to actually create a DVD object for The Avengers.
+        DVD avengersDVD = new DVD("The Avengers", 2012, "Joss Whedon");
+        
+        DVD incrediblesDVD = new DVD("The Incredibles", 2004, "Brad Bird");
+        DVD findingDoryDVD = new DVD("Finding Dory", 2016, "Andrew Stanton");
+        DVD lionKingDVD = new DVD("The Lion King", 2019, "Jon Favreau");
+        
+        // Next, we'll put it into the 8th place of the Array. Remember, because we
+        // started numbering from 0, the index we want is 7.
+        dvdCollection[7] = avengersDVD;
+        
+        // Put "The Incredibles" into the 4th place: index 3.
+        dvdCollection[3] = incrediblesDVD;
+        
+        // Put "Finding Dory" into the 10th place: index 9.
+        dvdCollection[9] = findingDoryDVD;
+        
+        // Put "The Lion King" into the 3rd place: index 2.
+        dvdCollection[2] = lionKingDVD;
+        
+        // Print out what's in indexes 7, 10, 3 and 2.
+        System.out.println(dvdCollection[7]);
+        System.out.println(dvdCollection[9]);
+        System.out.println(dvdCollection[3]);
+        System.out.println(dvdCollection[2]);
+        
+        //Overwrite [3]
+        DVD starWarsDVD = new DVD("Star Wars", 1977, "George Lucas");
+        dvdCollection[3] = starWarsDVD;
+        
+        //Java always initializes empty Array slots to null
+        System.out.println(dvdCollection[1]);
+        
+        
+    }
+}
