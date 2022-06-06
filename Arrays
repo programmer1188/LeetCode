@@ -15,7 +15,23 @@ checking through the entire collection of items is straightforward.
 # Java always initializes empty Array slots to null if the Array contains objects, or to default values if it contains primitive types. 
   For example, the array int [] would contain the default value of 0 for each element, 
   float[] would contain default values of 0.0, and bool[] would contain default values of false.
+ 
+# Array Capacity VS Length
+  Capacity: The number of DVDs the box could hold, if it was full.
+  Length: The number of DVDs currently in the box.
   
+# DVD[] array = new DVD[6]  arrray with capacity to store 6 DVD's
+  Remembering that indexing starts at 0, we can only insert items at array[0], array[1], array[2], array[3], array[4], and array[5]. 
+  Trying to put an element anywhere else, such as array[-3], array[6], or array[100] will cause your code to crash with an ArrayIndexOutOfBoundsException.
+  
+# The Array's capacity must be decided when the Array is created. The capacity cannot be changed later.
+
+# The capacity of an Array in Java can be checked by looking at the value of its length attribute. 
+  This is done using the code arr.length, where arr is the name of the Array. 
+  
+  //DVD[] array = new DVD[6]
+  //int capacity = array.length;
+  //System.out.println("The Array has a capacity of " + capacity);
   
 #Storing DVD's
 
