@@ -123,3 +123,79 @@ public class Main{
     }
 }
 
+
+
+# Basic Array operations
+# In this section, we'll be looking at the three basic operations that are supported by almost every data structure; insertion, deletion, and search.
+
+Inserting a new element into an Array can take many forms:
+1. Inserting a new element at the end of the Array.
+2. Inserting a new element at the beginning of the Array.
+3. Inserting a new element at any given index inside the Array.
+
+# Insertion at the end of the array is simple O(1) operation
+
+# Insertion at the start of the array is very costly operation, since each of the existing elements has to be shifted one step to the right. 
+  The need to shift everything implies that this is not a constant time operation. 
+  In fact, the time taken for insertion at the beginning of an Array will be proportional to the length of the Array.
+  In terms of time complexity analysis, this is a linear time complexity: O(N), where N is the length of the Array.
+
+# Similarly, for inserting at any given index, we first need to shift all the elements from that index onwards one position to the right.
+
+public class Main
+{
+	public static void main(String[] args) {
+		int[] array = new int[6];
+		
+	    int length = 0;
+	    
+	    for(int i=0;i<3;i++){
+	        array[length] = i;
+	        length++;
+	    }
+		
+		for(int i=0;i<array.length;i++){
+		    System.out.println("Index "+ i +" contains "+ array[i]);
+		}
+		
+		System.out.println("Insertion at end of array");
+		//Insert at end of array
+		array[length] = 10;
+		length++;
+		
+		for(int i=0;i<array.length;i++){
+		    System.out.println("Index "+ i +" contains "+ array[i]);
+		}
+		
+		// Inserting at the Start of an Array To insert an element at the start of an Array, 
+        //we'll need to shift all other elements in the Array to the right by one index to create space for the new element.
+        for(int i=3;i>=0;i--){
+            array[i+1] = array[i];
+        }
+        
+        array[0] = 20;
+        System.out.println("Insertion at start of array");
+        
+        for(int i=0;i<array.length;i++){
+		    System.out.println("Index "+ i +" contains "+ array[i]);
+		}
+		
+		//Insertion at middle of array
+		//Insert at position 2
+		System.out.println("Insertion at middle of array");
+        
+        
+		for(int i=4;i>=2;i--){
+		    array[i+1] = array[i];
+		}
+		
+		array[2] = 5;
+		
+		for(int i=0;i<array.length;i++){
+		    System.out.println("Index "+ i +" contains "+ array[i]);
+		}
+        
+	}
+}
+
+
