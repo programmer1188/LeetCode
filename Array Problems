@@ -102,3 +102,44 @@ public class Main
 	    }
 	}
 }
+
+
+# Merge Sorted Array
+Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
+The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
+
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int size = nums1.length;
+        
+        int[] nums3 = new int[size];
+        
+        int i=0,j=0,k=0;
+        
+        while(i<m && j<n){
+            if(nums1[i]<nums2[j]){
+                nums3[k] = nums1[i];
+                k++; i++;
+            }else{
+                nums3[k] = nums2[j];
+                k++; j++;
+            }
+        }
+        
+        while(i < m){
+            nums3[k] = nums1[i];
+            k++; i++;
+        }
+        
+        while(j < n){
+            nums3[k] = nums2[j];
+            k++; j++;
+        }
+        
+        for(int a=0;a<nums3.length;a++){
+            nums1[a] = nums3[a];
+        }
+    }
+}
