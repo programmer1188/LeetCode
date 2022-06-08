@@ -198,4 +198,84 @@ public class Main
 	}
 }
 
+# Array Deletion
+Deletion in an Array works in a very similar manner to insertion, and has the same three different cases:
+
+1. Deleting the last element of the Array.
+2. Deleting the first element of the Array.
+3. Deletion at any given index.
+
+
+public class Main
+{
+	public static void main(String[] args) {
+		int[] a = new int[10];
+		
+		int length = 0;
+		
+		for(int i=0;i<6;i++){
+		    a[length] = i;
+		    length++;
+		}
+		
+		//array capacity
+		
+		for (int i = 0; i < a.length; i++) {
+            System.out.println("Index " + i + " contains " + a[i]);
+        }
+        
+        System.out.println();
+        
+        //array length is calculated based on length variable 
+        
+        for (int i = 0; i < length; i++) {
+            System.out.println("Index " + i + " contains " + a[i]);
+        }
+        
+        //to delete last element of the array just reduce length
+        length--;
+        
+        System.out.println();
+        
+        for (int i = 0; i < length; i++) {
+            System.out.println("Index " + i + " contains " + a[i]);
+        }
+        
+        // Deleting From the Start of an Array
+        // If we want to delete the first element of the Array, that will create a vacant spot at the 0th index. 
+        // To fill that spot, we will shift the element at index 1 one step to the left.
+        
+        // Starting at index 1, we shift each element one position to the left.
+        for (int i = 1; i < length; i++) {
+            // Shift each element one position to the left
+            a[i - 1] = a[i];
+        }
+        
+        length--;
+        
+        System.out.println();
+        
+        for (int i = 0; i < length; i++) {
+            System.out.println("Index " + i + " contains " + a[i]);
+        }
+        
+        // Say we want to delete the element at index 1
+        for (int i = 2; i < length; i++) {
+            // Shift each element one position to the left
+            a[i - 1] = a[i];
+        }
+        
+        // Again, the length needs to be consistent with the current state of the array.
+        length--;
+        
+        System.out.println();
+        
+        for (int i = 0; i < length; i++) {
+            System.out.println("Index " + i + " contains " + a[i]);
+        }
+        
+	}
+}
+
+
 
