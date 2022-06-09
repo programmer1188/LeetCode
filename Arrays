@@ -278,4 +278,45 @@ public class Main
 }
 
 
+# Array Search
+
+Searching means to find an occurrence of a particular element in the Array and return its position
+
+If we know the index in the Array that may contain the element we're looking for, 
+Then the search becomes a constant time operation—we simply go to the given index and check whether or not the element is there.
+
+# Linear Search
+We continue checking elements until we find the element we're looking for, or we reach the end of the Array. 
+This technique for finding an element by checking through all elements one by one is known as the linear search algorithm. 
+In the worst case, a linear search ends up checking the entire Array. Therefore, the time complexity for a linear search is O(N).
+
+public static boolean linearSearch(int[] array, int length, int element) {
+    // Check for edge cases. Is the array null or empty?
+    // If it is, then we return false because the element we're
+    // searching for couldn't possibly be in it.
+    if (array == null || length == 0) {
+        return false;
+    }
+
+    // Carry out the linear search by checking each element,
+    // starting from the first one.
+    for (int i = 0; i < length; i++) {
+        // We found the element at index i.
+        // So we return true to say it exists.
+        if (array[i] == element) {
+            return true;
+        }
+    }
+
+    // We didn't find the element in the array.
+    return false;
+}
+
+
+# Binary Search
+If the elements in the Array are in sorted order, then we can use binary search. 
+Binary search is where we repeatedly look at the middle element in the Array, 
+and determine whether the element we're looking for must be to the left, or to the right. 
+
+Each time we do this, we're able to halve the number of elements we still need to search, making binary search a lot faster than linear search!
 
