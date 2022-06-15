@@ -214,6 +214,40 @@ class Solution {
     }
 }
 
+Methid 2 almost same #Return the length
+
+public class Main
+{
+    
+   public int removeDuplicates(int[] nums) {
+        int s=0;
+        for(int i=0;i<nums.length;i++){
+            
+            if(i<nums.length-1 && nums[i]==nums[i+1]){
+                continue;
+            }
+            
+            nums[s] = nums[i];
+            s++;
+            
+        }
+        return s;
+    }
+    
+	public static void main(String[] args) {
+	    Main myObj = new Main();
+	    
+	    int[] arr = new int[]{0,1,2,2,3,3,4,5,5,6};
+	    
+	    int length = myObj.removeDuplicates(arr);
+	    
+	    for(int i=0;i<length;i++){
+	        System.out.print(arr[i]+" ");
+	    }
+	}
+}
+
+
 
 #binary search 
 Given an array arr of integers, check if there exists two integers N and M such that N is the double of M ( i.e. N = 2 * M).
