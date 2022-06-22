@@ -1,0 +1,59 @@
+
+# Linked list is also a linear data structure.
+
+  Each element in the linked list is actually a separate object while all the objects are linked together by the reference field in each element.
+  There are two types of linked list: singly linked list and doubly linked list.
+  
+# Introduction - Singly Linked List  
+
+# Node Structure
+  In most cases, we will use the head node (the first node) to represent the whole list.
+
+// Definition for singly-linked list.
+public class SinglyListNode {
+    int val;
+    SinglyListNode next;
+    SinglyListNode(int x) 
+    { 
+      val = x; 
+    }
+}
+
+# Operations
+
+  Search - O(N) time on average to visit an element by index, where N is the length of the linked list.
+  
+  For instance, in the example above, the head is the node 23. 
+  The only way to visit the 3rd node is to use the "next" field of the head node to get to the 2nd node (node 6); 
+  Then with the "next" field of node 6, we are able to visit the 3rd node.
+  
+# Add Operation - Singly Linked List
+
+  Insert a new node into a linked list in O(1) time complexity, which is very efficient.
+  
+  If we want to add a new value after a given node prev, we should: 
+  
+  1. Initialize a new node cur with the given value;
+  2. Link the "next" field of cur to prev's next node next;
+  3. Link the "next" field in prev to cur;
+  
+  Add a Node at the Beginning
+ 
+  so it is essential to update head when adding a new node at the beginning of the list.
+   1. Initialize a new node cur;
+   2. Link the new node to our original head node head.
+   3. Assign cur to head.
+   
+   
+# Delete Operation
+  If we want to delete an existing node cur from the singly linked list, we can do it in two steps:
+
+  1. Find cur's previous node prev and its next node next;
+  2. Link prev to cur's next node next.
+  
+  Time complexity of deleting a node will be O(N).
+  
+  If we want to delete the first node, we can simply assign the next node to head. O(1)
+  
+  
+  
