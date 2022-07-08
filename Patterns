@@ -36,3 +36,37 @@ If asked for common strings then
 Else
 - Map/Set for O(1) time & O(n) space
 - Sort input for O(nlogn) time and O(1) space
+
+
+
+
+
+Arrays and Strings
+-> Kadane's Algorithm
+-> Dutch National Flag Algorithm
+-> Sliding Window
+-> Two Pointers
+
+Multidimentional Arrays
+-> Traversal Based Questions
+-> Rotation Based Problem
+
+Recursion and Backtracking
+-> Basic problems
+-> Divide and Conquer
+
+Sorting Algorithms
+-> Insertion sort
+-> Selection Sort
+
+Binary Search
+-> Arrays
+-> Matrix
+
+
+Linked Lists
+-> Reversal Problems
+-> Sorting Problems
+-> Slow and Fast Pointers
+
+
