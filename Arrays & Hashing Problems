@@ -26,3 +26,24 @@ class Solution:
             if nums[i+1]==nums[i]:  
                 return True
         return False
+
+Problem 2:
+
+242. Valid Anagram
+
+https://leetcode.com/problems/valid-anagram/description/
+
+Python3 code:
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):  #check length of two strings if not equal then anagram is not possible
+            return False
+
+        frequency1 = {}  #create two dictionaries(hashmap) to store the frquency of letters in both strings
+        frequency2 = {}
+
+        for i in range(len(s)):  #add frequency for each letter
+            frequency1[s[i]] = 1 + frequency1.get(s[i], 0)
+            frequency2[t[i]] = 1 + frequency2.get(t[i], 0)
+        return frequency1 == frequency2  #if both have same numbers of letter frequencies then it return true
