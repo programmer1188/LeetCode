@@ -60,3 +60,21 @@ class Solution:
         t = sorted(t) # ['a', 'a', 'a', 'g', 'm', 'n', 'r']
 
         return s==t
+
+
+Problem 3:
+
+1. Two Sum
+
+Python3 code:
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap = {} #To store value and its index
+
+        for index, value in enumerate(nums):
+            difference = target - value  #caluculate difference between Target value and the list value 
+            if difference in hashmap:    #If difference value is present in hashmap then return difference value index and and current index 
+                return [hashmap[difference], index]
+            hashmap[value] = index
+        return    
