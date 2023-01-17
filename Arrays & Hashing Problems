@@ -35,6 +35,7 @@ https://leetcode.com/problems/valid-anagram/description/
 
 Python3 code:
 
+# Two Hashmaps  Time -> O(S+T) O(n) Space -> O(S+T) O(n)  
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):  #check length of two strings if not equal then anagram is not possible
@@ -47,3 +48,15 @@ class Solution:
             frequency1[s[i]] = 1 + frequency1.get(s[i], 0)
             frequency2[t[i]] = 1 + frequency2.get(t[i], 0)
         return frequency1 == frequency2  #if both have same numbers of letter frequencies then it return true
+ 
+ 
+# sorted() strings  Time -> O(nlogn) Space -> O(1)
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s)!=len(t):
+            return False
+
+        s = sorted(s) # ['a', 'a', 'a', 'g', 'm', 'n', 'r']
+        t = sorted(t) # ['a', 'a', 'a', 'g', 'm', 'n', 'r']
+
+        return s==t
