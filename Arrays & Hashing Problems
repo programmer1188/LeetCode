@@ -4,38 +4,25 @@ Leetcode 217. Contains Duplicate
 
 https://leetcode.com/problems/contains-duplicate/
 
-Java code:
+Python3 code:
 
-class Solution {
-    public boolean containsDuplicate(int[] nums) {
-      
-      Method 1: O(nlogn)  Space: O(1)
-      
-      /* Arrays.sort(nums);
-        
-        for(int i=0;i<nums.length-1;i++){
-            if(nums[i]==nums[i+1]){
-                return true;
-            }
-        }
-        
-        return false;
-       */
-        
-        
-        Method 2: O(n)  space: O(n)
-        
-        HashSet<Integer> duplicate = new HashSet<Integer>();
-        
-        for(int i=0;i<nums.length;i++){
-            if(duplicate.contains(nums[i])){
-                return true;
-            }else{
-                duplicate.add(nums[i]);
-            }
-        }
-        
-        return false;
-        
-    }
-}
+#Hashset  Time -> O(n) Space -> O(n)
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        hashset = set()  #create a hashset and insert each element in list to hashset
+
+        for i in nums:
+            if i in hashset:  #check element is alredy in the hashset
+                return True
+            hashset.add(i)
+        return False  #If no duplicate element in list return False
+
+
+#Sort List  Time -> O(nlogn) Space -> O(1)
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        nums.sort()  #Sort the List
+        for i in range(len(nums)-1):  #Check if next element is same as previous element 
+            if nums[i+1]==nums[i]:  
+                return True
+        return False
