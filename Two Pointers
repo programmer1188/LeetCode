@@ -1,0 +1,45 @@
+125. Valid Palindrome
+
+https://leetcode.com/problems/valid-palindrome/description/
+
+class Solution:      Time -> O(n)  Space -> 
+    def isPalindrome(self, s: str) -> bool:
+        s = s.lower() #Lower case all alphabets
+
+        #Remove all non alphanumeric characters
+        #Here Join takes all the ch from for loop and concatenate them to empty string and
+        #assigns the string to s
+        s = ''.join(ch for ch in s if ch.isalnum())
+         
+        #Use two pointer approach and check from front to back of the string
+        l = 0
+        r = len(s)-1
+        while l < r:
+            if s[l] != s[r]:
+                return False
+            l += 1
+            r -= 1
+        return True 
+        
+
+#Using own function to check the alphanumeric characters
+class Solution:  Time -> O(n) Space ->O(1)
+    def isPalindrome(self, s: str) -> bool:
+
+        l = 0
+        r = len(s) - 1
+        while l < r:
+            while l < r and not self.alphaNum(s[l]):
+                l += 1
+            while r > l and not self.alphaNum(s[r]):
+                r -= 1
+            if s[l].lower() != s[r].lower():
+                return False
+            l += 1
+            r -= 1
+        return True 
+
+    def alphaNum(self, c):
+        return (ord('A') <= ord(c) <= ord('Z') or
+                ord('a') <= ord(c) <= ord('z') or
+                ord('0') <= ord(c) <= ord('9'))
