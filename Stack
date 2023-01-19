@@ -1,0 +1,30 @@
+20. Valid Parentheses
+
+https://leetcode.com/problems/valid-parentheses/description/
+
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        #Create a Map to store opening and closing bracket as key value pair using          dictionary
+        Map = {")":"(", "]":"[", "}":"{"}
+        stack = [] #empty 
+
+        for c in s:  #for each character in string
+            if c in Map:  #checks if the character is a closing parenthesis
+                if stack and stack[-1] == Map[c]:  #if stack is not empty and top of stack is equal to the value of key in Map then pop the top of the stack
+                    stack.pop()
+                else:                
+                    return False
+            else:
+                stack.append(c)  #Add all open parentheses to stack
+        
+        #if stack is empty return True
+        if stack: 
+            return False
+        else:
+            return True
+
+
+         
+
+
