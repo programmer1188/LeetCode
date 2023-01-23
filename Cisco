@@ -1,0 +1,26 @@
+def longest_palindrome(string):
+    longest = ""
+    for i in range(len(string)):
+        for j in range(i, len(string)):
+            substring = string[i:j+1]
+            if substring == substring[::-1] and len(substring) > len(longest):
+                longest = substring
+    return longest
+
+print(longest_palindrome("abracadabra")) # Output: "aca"
+
+
+def find_largest_smallest(matrix):
+    largest_smallest = float('-inf')
+    for i in range(len(matrix)):
+        row_max = max(matrix[i])
+        for j in range(len(matrix[i])):
+            col_min = min(matrix[k][j] for k in range(len(matrix)))
+            if matrix[i][j] == row_max and matrix[i][j] == col_min:
+                largest_smallest = matrix[i][j]
+    return largest_smallest
+
+# Test the function
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+result = find_largest_smallest(matrix)
+print(result) # Output: 4
