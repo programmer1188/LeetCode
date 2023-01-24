@@ -1,2 +1,4 @@
 Duplicate elements:
 When there are duplicates in a list and if you want to know if there are any duplicates always use "hashset" -> O(n)
+
+Count Frequency of items always use Hashmap -> Dictionary 
