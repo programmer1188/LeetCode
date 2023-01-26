@@ -2,6 +2,29 @@
 
 https://leetcode.com/problems/valid-palindrome/description/
 
+class Solution:  O(n) O(1)
+    def isPalindrome(self, s: str) -> bool:
+        
+        new_s = ""
+        
+        #48-57 (0-9) 65-90 (A-Z) 97-122(a-z)
+        #if char in these alphanumric range then it adss char to new string
+        for char in s:
+            if (ord(char) >= 48 and ord(char) <= 57) or (ord(char) >= 65 and ord(char) <= 90) or (ord(char) >= 97 and ord(char) <= 122):
+                new_s += char.lower()
+
+        front = 0
+        back = len(new_s) - 1
+
+        while front < back:
+            if new_s[front] == new_s[back]:
+                front += 1
+                back -= 1
+            else:
+                return False 
+        return True
+   
+
 class Solution:      Time -> O(n)  Space -> 
     def isPalindrome(self, s: str) -> bool:
         s = s.lower() #Lower case all alphabets
