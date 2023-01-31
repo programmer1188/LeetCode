@@ -1,0 +1,56 @@
+206. Reverse Linked List
+
+https://leetcode.com/problems/reverse-linked-list/
+
+Time - O(n) Space - O(1)
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev = None
+        curr = head
+
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        return prev
+            
+
+21. Merge Two Sorted Lists
+
+https://leetcode.com/problems/merge-two-sorted-lists/description/
+
+Time - O(n) Space - O(1)
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode()   #Initiate dummy node to avoid edge cases of empty lists
+        tail = dummy
+
+        while list1 and list2:
+            if list1.val < list2.val: #if list1 value is smaller insert it next to tail node
+                tail.next = list1
+                list1 = list1.next    #update list1 to next node
+            else:
+                tail.next = list2    #if list2 value is smaller insert it next to tail node
+                list2 = list2.next   #update list2 to next node
+            tail = tail.next         #update tail node after insertion
+
+        #Now if one of the list is empty then put the remaning values in the non empty list to the end of the tail(Merged list)    
+        if list1:
+            tail.next = list1
+        elif list2:
+            tail.next = list2
+        
+        return dummy.next
