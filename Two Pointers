@@ -88,3 +88,34 @@ class Solution:
                 l += 1
         return 0
             
+
+15. 3Sum
+https://leetcode.com/problems/3sum/description/
+
+Time -> O(nlogn) + O(n^2) -> O(n^2)  Space -> O(n)
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        nums = sorted(nums)
+
+        result = []
+
+        for i, value in enumerate(nums):
+            if i > 0 and value == nums[i-1]:
+                continue
+
+            l = i+1
+            r = len(nums)-1
+
+            while l < r :
+                total = value+nums[l]+nums[r]
+                if total > 0:
+                    r -= 1
+                elif total < 0:
+                    l += 1
+                else:
+                    result.append([value, nums[l], nums[r]])
+                    l += 1
+                    while nums[l] == nums[l-1] and l < r:
+                        l += 1
+        return result
