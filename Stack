@@ -54,3 +54,36 @@ Time -> O(1) Space -> o(n)
                 
 
 
+150. Evaluate Reverse Polish Notation
+
+https://leetcode.com/problems/evaluate-reverse-polish-notation/
+
+Time -> O(n) Space -> O(n)
+
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        stack = []
+
+        for i in tokens:
+            if i == '+':
+                num1 = stack.pop()
+                num2 = stack.pop()
+                stack.append(num2 + num1)
+            elif i == '-':
+                num1 = stack.pop()
+                num2 = stack.pop()
+                stack.append(num2 - num1)
+            elif i == '*':
+                num1 = stack.pop()
+                num2 = stack.pop()
+                stack.append(num2 * num1)
+            elif i == '/':
+                num1 = stack.pop()
+                num2 = stack.pop()
+                stack.append(int(num2 / num1))
+            else:
+                stack.append(int(i))
+
+        return stack[0]         
+
+              
