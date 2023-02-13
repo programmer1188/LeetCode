@@ -114,3 +114,20 @@ class Solution:
         backtrack(0,0)
         return res 
 
+
+739. Daily Temperatures
+
+https://leetcode.com/problems/daily-temperatures/description/
+Time - > O(n) Space -> O(n)
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        res = [0] * len(temperatures)
+        stack = [] # store index
+
+        for i, t in enumerate(temperatures):
+            #if stack is not empty and current temp is greater than temp on top of stack
+            while stack and t > temperatures[stack[-1]]:
+                stackIndex = stack.pop()
+                res[stackIndex] = (i - stackIndex)
+            stack.append(i)
+        return res        
