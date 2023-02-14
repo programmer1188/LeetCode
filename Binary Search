@@ -19,3 +19,48 @@ class Solution:
                 return mid
         
         return -1
+
+74. Search a 2D Matrix
+https://leetcode.com/problems/search-a-2d-matrix/description/
+
+Time -> O(logm+logn)
+
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        rows, columns = len(matrix), len(matrix[0])
+
+        #To decide which row to do binary serach first perform binary serach on rows
+        topRow = 0
+        bottomRow = rows - 1
+
+        while topRow <= bottomRow:
+            row = (topRow + bottomRow) // 2
+            #check if target is greater than last elelemt in row
+            if target > matrix[row][-1]:
+                topRow = row + 1
+            #check if target is less than first elemnt in row
+            elif target < matrix[row][0]:
+                bottomRow =  row - 1
+            else:
+                break
+
+        #if none of the rows comtains the taget    
+        if not (topRow <= bottomRow):
+            return False
+
+        # row to perform binary serach on    
+        row = (topRow + bottomRow) // 2
+
+        l = 0
+        r = columns - 1
+
+        while l <= r:
+            m = (l+r) // 2
+            if target > matrix[row][m]:
+                l = m + 1
+            elif target < matrix[row][m]:
+                r = m - 1
+            else:
+                return True
+        return False
+       
